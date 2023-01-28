@@ -34,7 +34,7 @@ const onDelete = (del) => {
     let a = del.getAttribute("data-id");
     // cl(a)
     stdArray.filter(ele => ele.id !== a)
-    setStdArray()
+    setStdArray();
    cl( del.parentElement.parentElement)
     del.parentElement.parentElement.remove()
 }
@@ -56,6 +56,8 @@ const templating = (arr) => {
     })
     stdDetails.innerHTML = result;
 }
+templating(stdArray);
+
 if (localStorage.getItem("setStdInfo")) {
     stdArray = JSON.parse(localStorage.getItem('setStdInfo'))
     templating(stdArray);
@@ -69,8 +71,6 @@ const UUID = () =>
         ).toString(16)
     );
 
-
-templating(stdArray);
 
 const addData = (ele) => {
     ele.preventDefault()
@@ -100,6 +100,7 @@ const onStdUpdate = ele => {
         }
     })
     setStdArray()
+//    cl(document.querySelector(`[data-id = ${updatedId}]`).closest("tr"));
     templating(stdArray)
     submitBtn.classList.remove('d-none')
     updateBtn.classList.add('d-none')
