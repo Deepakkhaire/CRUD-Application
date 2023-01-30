@@ -126,14 +126,15 @@ const onContactBlur = ele => {
     // cl(contactArr)
     if(isNaN(contactArr)){
         contactControl.nextElementSibling.classList.remove('d-none');
-    }else if(contactArr == 0){
+    }else if(contactArr.length == 0){
         contactControl.nextElementSibling.classList.add('d-none');
     }
     else if((contactArr.length < 10) || (contactArr.length > 10)){
        validContact.classList.remove('d-none');
     }   
-    else{
+    else if(contactArr.length === 10){
         validContact.classList.add('d-none');
+        contactControl.nextElementSibling.classList.add('d-none');
     }
 }
 function setStdArray(){
