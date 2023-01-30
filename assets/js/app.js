@@ -9,6 +9,7 @@ const stdDetails = document.getElementById('stdDetails');
 const submitBtn = document.getElementById("submitBtn");
 const updateBtn = document.getElementById("updateBtn");
 const validEmail = document.getElementById("validEmail");
+const validContact = document.getElementById("validContact");
 
 let stdArray = [
     //  {fname : "adjf", lname : "djjfs",  email : "kdjfjsd", contact : 4544455R}
@@ -32,11 +33,14 @@ const onEdit = (eid) => {
 const onDelete = (del) => {
     // cl("Deleted", del)
     let a = del.getAttribute("data-id");
-    // cl(a)
+    //  cl(a)
     stdArray.filter(ele => ele.id !== a)
+    stdArray.splice(a,1)
+//    cl( del.parentElement.parentElement)
+      del.parentElement.parentElement.remove()
+    // templating(stdArray);
     setStdArray();
-   cl( del.parentElement.parentElement)
-    del.parentElement.parentElement.remove()
+
 }
 
 const templating = (arr) => {
@@ -110,14 +114,32 @@ const onEmailBlur = (ele => {
     let emArr = emailControl.value;
     if(emArr.indexOf("@") < emArr.indexOf(".")){
         validEmail.classList.add("d-none")
+    }else if(emArr == ''){
+        validEmail.classList.add("d-none")
     }else{
         validEmail.classList.remove("d-none")
+
     }
 })
+const onContactBlur = ele => {
+    let contactArr = contactControl.value;
+    // cl(contactArr)
+    if(isNaN(contactArr)){
+        contactControl.nextElementSibling.classList.remove('d-none');
+    }else if(contactArr == 0){
+        contactControl.nextElementSibling.classList.add('d-none');
+    }
+    else if((contactArr.length < 10) || (contactArr.length > 10)){
+       validContact.classList.remove('d-none');
+    }   
+    else{
+        validContact.classList.add('d-none');
+    }
+}
 function setStdArray(){
     localStorage.setItem("setStdInfo", JSON.stringify(stdArray))
 }
-
 stdInfo.addEventListener("submit", addData)
 updateBtn.addEventListener("click", onStdUpdate)
 emailControl.addEventListener("blur",onEmailBlur)
+contactControl.addEventListener("blur",onContactBlur)

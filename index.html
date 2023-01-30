@@ -15,24 +15,26 @@
    <h1 class="bg-primary text-white p-3 header">CRUD Application</h1>
     <div class="container bg-grey">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 pt-2">
                 <form id="stdInfo">
                     <div class="form-group mt-4 ">
-                        <label for="name">First Name</label>
+                        <label for="name">First Name*</label>
                         <input type="text" id="name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="lname">Last Name</label>
+                        <label for="lname">Last Name*</label>
                         <input type="text" id="lname" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email*</label>
                         <input type="email" id="email" class="form-control" required>
                         <span class="d-none text-capitalize text-danger" id="validEmail">Please enter valid email</span>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="Contact">Contact</label>
+                        <label for="Contact">Contact*</label>
                         <input type="text" id="Contact" class="form-control" required>
+                        <span class="d-none text-capitalize text-danger">Please Enter Mobile Number</span>
+                        <span class="d-none text-capitalize text-danger" id="validContact">Mobile Number Must be 10 Digits</span>
                     </div>
                     <div>
                         <button class="btn btn-primary float-right pl-4 pr-4" id="submitBtn" type="submit">
@@ -44,8 +46,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6 mt-4">
-                <div class="table-responsive">
+            <div class="col-md-6 mt-4 pt-4">
+                <div class="table-responsive ">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
