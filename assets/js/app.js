@@ -53,8 +53,8 @@ const templating = (arr) => {
                 <td>${ele.lname}</td>
                 <td>${ele.email}</td>
                 <td>${ele.contact}</td>
-                <td><button class="btn btn-primary" data-id="${ele.id}" onclick="onEdit(this)">Edit</button></td>
-                <td><button class="btn btn-danger" data-id="${ele.id}" onclick="onDelete(this)">Delete</button></td>
+                <td><button class=" fa-solid fa-pen-to-square text-primary" data-id="${ele.id}" onclick="onEdit(this)"></button></td>
+                <td><button class="fa-solid fa-trash-can text-danger" data-id="${ele.id}" onclick="onDelete(this)"></button></td>
             </tr>
         `
     })

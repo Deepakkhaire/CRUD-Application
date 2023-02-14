@@ -15,3 +15,8 @@ label{
 input[placeholder]{
     font-size: 15px;
 }
+.fa-solid{
+    border: none;
+    font-size: 26px;
+    padding-left: 15px;
+}
