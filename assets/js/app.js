@@ -35,9 +35,12 @@ const onDelete = (del) => {
     let a = del.getAttribute("data-id");
     //  cl(a)
     stdArray.filter(ele => ele.id !== a)
-    stdArray.splice(a,1)
-//    cl( del.parentElement.parentElement)
-      del.parentElement.parentElement.remove()
+    if(confirm("Are You Sure, You Want to Delete !!")){
+        stdArray.splice(a,1)
+        del.parentElement.parentElement.remove()
+    }else{
+        //...
+    }
     // templating(stdArray);
     setStdArray();
 
